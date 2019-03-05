@@ -1,0 +1,8 @@
+<h1>Add a new exercise</h1>
+<% if @message %>
+  <p style="color: red"><%= @message %></p>
+<% end %>
+<%= form_for(@exercise) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+<% end %>

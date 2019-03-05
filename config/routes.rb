@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   resources :workout_exercises
-  resources :exercises
+  resources :exercises, only: [:new, :create]
   resources :workouts
   resources :users
   get '/login' => 'sessions#new'

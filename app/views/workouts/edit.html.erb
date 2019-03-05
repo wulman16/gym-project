@@ -1,0 +1,8 @@
+<h2>Edit Your Workout!</h2>
+
+<%= render "form" %>
+<p> We need to add workout_exercises & exercises on this page</p><br>
+
+<%= form_tag workout_path(@workout.id), method: "delete" do %>
+  <%= submit_tag "Delete #{@workout.name}" %><br>
+  <% end %>

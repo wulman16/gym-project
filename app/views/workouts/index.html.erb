@@ -1,1 +1,5 @@
-<h1>Placeholder for user's workouts</h1>
+<h1>Workout Page</h1>
+
+<% @workouts.each do |workout| %>
+<li><%=link_to workout.name, workout_path(workout.id) %></li>
+<% end %>

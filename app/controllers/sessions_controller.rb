@@ -9,11 +9,16 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       ## this should be stored in the browser and sent back in new reqs somehow
       ## redirect to the homepage
-      redirect_to workouts_path
+      redirect_to user_path(user)
     else
       @message = "We couldn't log you in. Wrong username or password."
       render :new
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/login'
   end
 
 end

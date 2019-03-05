@@ -1,0 +1,7 @@
+<h2><%= @workout.name %></h2>
+
+<% @workout.exercises.each do |w|%>
+<li><%= w.name %></li>
+<% end %>
+
+<%= link_to "Edit Your Workout", edit_workout_path %>

@@ -6,9 +6,9 @@ WorkoutExercise.destroy_all
 # will = User.create(username: "will")
 # megan = User.create(username: "megan")
 
-# upper_body_a = Workout.create(name: "Upper Body A", user_id: will.id)
-# upper_body_b = Workout.create(name: "Upper Body B", user_id: megan.id)
-# leg_day = Workout.create(name: "Leg Day", user_id: will.id)
+ upper_body_a = Workout.create(name: "Upper Body A", user_id: will.id)
+ upper_body_b = Workout.create(name: "Upper Body B", user_id: megan.id)
+ leg_day = Workout.create(name: "Leg Day", user_id: will.id)
 
 # bench_press = Exercise.create(name: "Bench Press")
 # curls = Exercise.create(name: "Curls")

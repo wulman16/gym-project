@@ -1,7 +1,20 @@
 <h2><%= @workout.name %></h2>
-
-<% @workout.exercises.each do |w|%>
-<li><%= w.name %></li>
-<% end %>
+<table>
+  <tr>
+    <th>Exercise</th>
+    <th>Weight</th>
+    <th>Sets</th>
+    <th>Reps</th>
+  </tr>
+  <% @workout.workout_exercises.each do |we| %>
+    <tr>
+      <td><%= we.exercise.name %></td>
+      <td><%= we.weight %></td>
+      <td><%= we.sets %></td>
+      <td><%= we.reps %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to "Edit Your Workout", edit_workout_path %>
+<%= link_to "All Workouts", user_path(@workout.user_id) %>

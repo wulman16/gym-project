@@ -1,0 +1,6 @@
+<ul>
+<% @exercises.each do |exercise| %>
+  <li><%= exercise.name %></li>
+<% end %>
+</ul>
+<%= link_to "All Workouts", user_path(session[:user_id]) %>

@@ -2,7 +2,16 @@
 <% if @message %>
   <p style="color: red"><%= @message %></p>
 <% end %>
-<%= form_for(@exercise) do |f| %>
+
+<div class="ui form">
+  <div class="fields">
+    <%= form_for(@exercise, html: {class: 'ui_form', }) do |f| %>
+    <div class="field">
+    <%= f.label(:name, "Type the Name of the Exercise Below") %>
     <%= f.text_field :name %>
-    <%= f.submit %>
-<% end %>
+    </div><br>
+    <button class="ui primary basic button">
+     Create an Exercise </button>
+  <% end %>
+  </div>
+</div>

@@ -4,12 +4,28 @@
     <title>GymProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" /> %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <nav>
+  <div class="ui top fixed menu">
+  <div class="item">
+   <i class="em em-muscle"></i>
+  </div>
+ 
+    <% if current_user %>
+        <%= link_to("Logout", logout_path, method: :delete, class: "item") %>
+      <% else %>
+        <%= link_to("Sign Up", new_user_path, class: "item") %>
+        <%= link_to("Login", login_path, class: "item") %>
+      <% end %>
+      </div>
+</nav>
     <%= yield %>
   </body>
 </html>

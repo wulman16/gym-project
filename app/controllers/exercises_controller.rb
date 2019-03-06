@@ -1,5 +1,9 @@
 class ExercisesController < ApplicationController
 
+  def index
+    @exercises = Exercise.all.sort
+  end
+
   def new
     @exercise = Exercise.new
   end
@@ -7,7 +11,7 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      redirect_to user_path(session[:user_id])
+      redirect_to exercises_path
     else
       @message = "Exercise already exists."
       render 'new'

@@ -5,13 +5,21 @@
   <p style="color: red"><%= @message %></p>
 <% end %>
 
-<%= form_tag(login_path) do %>
+<div class="ui form">
+  <div class="fields">
+<%= form_tag(login_path, html: {class: 'ui_form', } ) do %>
+  <div class="field"> 
   <%= label_tag("Username") %>
   <%= text_field_tag(:username) %>
+  </div><br>
+  <div class="field">
   <%= label_tag("Password") %>
   <%= password_field_tag(:password) %>
-  <%= submit_tag("Login") %>
+  </div><br>
+  <button class="ui primary basic button">
+     Login </button>
 <% end %>
-
+</div>
+</div>
 <br>
 <%= link_to "Create an Account", new_user_path %>

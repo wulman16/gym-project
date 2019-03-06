@@ -43,12 +43,12 @@ class WorkoutsController < ApplicationController
     def destroy
         @workout = Workout.find(params[:id])
         @workout.destroy
-        redirect_to workouts_path
+        redirect_to user_path(session[:user_id])
     end 
 
     private 
     def workout_params
-        params.require(:workout).permit(:name, :user_id, workout_exercises_attributes: [:exercise_id, :sets, :reps, :weight, id:[]])
+        params.require(:workout).permit(:name, :user_id, workout_exercises_attributes: [:exercise_id, :sets, :reps, :weight, :id])
     end
 
     def require_login

@@ -21,6 +21,8 @@
   </div>
 <% end %>
 <br>
-<%= link_to "Logout", :controller => 'sessions', :action => 'destroy' %>
-<br>
 <%= link_to "Create a New Exercise", :controller => 'exercises', :action => 'new' %>
+<br>
+<%= link_to "Create a New Workout", new_workout_path %>
+<br>
+<%= link_to "Logout", :controller => 'sessions', :action => 'destroy' %>

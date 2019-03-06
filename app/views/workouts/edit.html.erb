@@ -1,8 +1,26 @@
-<h2>Edit Your Workout!</h2>
+<h2>Edit Your Workout</h2>
 
-<%= render "form" %>
-<p> We need to add workout_exercises & exercises on this page</p><br>
+<%=form_for(@workout) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name%><br> <br>
+
+<%= f.fields_for :workout_exercises, @workout.workout_exercises do |we| %>
+  <%= we.label :exercise %>
+  <%= we.collection_select :exercise_id, Exercise.all, :id, :name, { prompt: true } %> <br>
+  <%= we.label :sets %>
+  <%= we.number_field :sets %><br>
+  <%= we.label :reps %>
+  <%= we.number_field :reps %><br>
+  <%= we.label :weight %>
+  <%= we.text_field :weight %><br> <br>
+  <% end %>
+
+<%= f.submit %>
+
+<% end %>
 
 <%= form_tag workout_path(@workout.id), method: "delete" do %>
   <%= submit_tag "Delete #{@workout.name}" %><br>
-  <% end %>
+<% end %>
+
+<%= link_to "All Workouts", user_path(session[:user_id]) %>

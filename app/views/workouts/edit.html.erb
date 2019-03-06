@@ -1,26 +1,43 @@
-<h2>Edit Your Workout</h2>
+<h2>Edit Your Workout</h2> <br>
 
-<%=form_for(@workout) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name%><br> <br>
-
-<%= f.fields_for :workout_exercises, @workout.workout_exercises do |we| %>
-  <%= we.label :exercise %>
-  <%= we.collection_select :exercise_id, Exercise.all, :id, :name, { prompt: true } %> <br>
+<div class="ui form">
+  <div class="fields">
+  <%=form_for(@workout, html: {class: 'ui_form', }) do |f| %>
+  <div class="field">
+  <h3 class="ui header"><%= f.label :name %></h3>
+  <%= f.text_field :name%>
+  <div class="ui section divider"></div>
+</div>
+<%= f.fields_for :workout_exercises, @workout.workout_exercises, html: {class: 'ui_form', } do |we| %>
+  <div class="field">  
+  <h4 class="ui header"><%= we.label :exercise %></h4>
+  <%= we.collection_select :exercise_id, Exercise.all, :id, :name, { prompt: true } %><br>
+  </div>
+  <div class="field">
   <%= we.label :sets %>
   <%= we.number_field :sets %><br>
+  </div><br>
+  <div class="field">
   <%= we.label :reps %>
   <%= we.number_field :reps %><br>
+  </div><br>
+  <div class="field">
   <%= we.label :weight %>
-  <%= we.text_field :weight %><br> <br>
+  <%= we.text_field :weight %><br>
+  <div class="ui section divider"></div>
+  </div>
   <% end %>
 
-<%= f.submit %>
+ <button class="mini ui primary basic button">
+     Edit Your Workout </button>
 
 <% end %>
 
 <%= form_tag workout_path(@workout.id), method: "delete" do %>
-  <%= submit_tag "Delete #{@workout.name}" %><br>
+  <button class="mini ui negative basic button">
+  <%= "Delete #{@workout.name}" %><br>
+</button>
+
 <% end %>
 
 <%= link_to "All Workouts", user_path(session[:user_id]) %>

@@ -1,9 +1,18 @@
 <h1>Sign up</h1>
+<div class="ui form">
+  <div class="fields">
+    <%= form_for(@user, html: {class: 'ui_form', } ) do |f| %>
+      <div class="field">
+      <%= f.label(:username, "Username") %>
+      <%= f.text_field :username %>
+      </div>
+      <div class="field">
+      <%= f.label(:password, "Password") %>
+      <%= f.password_field :password %>
+      </div>
+      <button class="ui primary basic button">
+     Sign Up </button>
+    <% end %>
+  </div>
+</div>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label(:username, "Username") %>
-  <%= f.text_field :username %>
-  <%= f.label(:password, "Password") %>
-  <%= f.password_field :password %>
-  <%= f.submit %>
-<% end %>

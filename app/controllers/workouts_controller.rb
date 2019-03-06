@@ -1,4 +1,7 @@
 class WorkoutsController < ApplicationController
+
+    before_action :require_login
+    skip_before_action :require_login, only: [:index, :show]
     
     def index
         @workouts = Workout.all
@@ -6,7 +9,7 @@ class WorkoutsController < ApplicationController
 
     def show 
         @workout = Workout.find(params[:id])
-    end 
+    end
 
     def new 
         @workout = Workout.new
@@ -14,12 +17,13 @@ class WorkoutsController < ApplicationController
 
     def create
         @workout = Workout.new(workout_params)
+        @workout.user_id = session[:user_id]
         if @workout.valid?
             @workout.save
             redirect_to workout_path(@workout)
         else
-        render :new
-        end 
+            render :new
+        end
     end
 
     def edit 
@@ -44,6 +48,10 @@ class WorkoutsController < ApplicationController
 
     private 
     def workout_params
-        params.require(:workout).permit(:name, :user_id)
-    end 
+        params.require(:workout).permit(:name, :user_id, workout_exercises_attributes: [:exercise_id, :sets, :reps, :weight, id:[]])
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include?(:user_id)
+    end
 end

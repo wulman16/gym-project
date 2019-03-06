@@ -1,6 +1,17 @@
 <%=form_for(@workout) do |f| %>
 <%= f.label :name %>
 <%= f.text_field(:name, placeholder: "Name Your Workout")%><br>
+
+<%= f.fields_for :workout_exercises, 2.times{@workout.workout_exercises.build} do |we| %>
+  <%= we.collection_select :exercise_id, Exercise.all, :id, :name, { prompt: true } %> <br> <br>
+  <%= we.label :sets %>
+  <%= we.number_field :sets %><br>
+  <%= we.label :reps %>
+  <%= we.number_field :reps %><br>
+  <%= we.label :weight %>
+  <%= we.text_field :weight %><br>
+  <% end %>
+
 <%= f.submit %>
 
 <% end %>

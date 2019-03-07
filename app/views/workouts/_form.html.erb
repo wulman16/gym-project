@@ -1,6 +1,7 @@
 <div class="ui form">
   <div class="fields">
   <%=form_for(@workout, html: {class: 'ui_form', }) do |f| %>
+  <div class="field">
   <h3 class="ui header"><%= f.label :name %></h3>
   <%= f.text_field :name%>
 </div>
@@ -16,16 +17,16 @@
     <div class="column">
     <div class="field">
       <%= we.label :sets %>
-      <%= we.number_field :sets %><br>
-      </div><br>
+      <%= we.number_field :sets %>
+      </div>
       </div>
       <div class="column">
         <div class="field">
       <%= we.label :reps %>
-      <%= we.number_field :reps %><br>
+      <%= we.number_field :reps %>
       <div class="ui section divider"></div>
-        </div><br>
-  </div>
+        </div>
+       </div>
   <div class="column">
   <div class="field">
       <%= we.label :weight %>

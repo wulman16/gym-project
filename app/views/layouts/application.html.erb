@@ -15,12 +15,16 @@
   <nav>
   <div class="ui top fixed menu">
   <div class="item">
+  <%= link_to root_path do %>
    <i class="em em-muscle"></i>
+   <% end %>
   </div>
  
     <% if current_user %>
+        <%= link_to("New Workout", new_workout_path, class: "item") %>
+        <%= link_to("New Exercise", new_exercise_path, class: "item") %>
+        <%= link_to("Exercises", exercises_path, class: "item") %>
         <%= link_to("Logout", logout_path, class: "item") %>
-        <%# <%= link_to("Workouts", class: "item")%> 
       <% else %>
         <%= link_to("Sign Up", new_user_path, class: "item") %>
         <%= link_to("Login", login_path, class: "item") %>

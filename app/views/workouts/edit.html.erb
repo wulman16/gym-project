@@ -6,34 +6,33 @@
        <div class="field">
         <h3 class="ui header"><%= f.label :name %></h3>
         <%= f.text_field :name%>
-       <div class="ui section divider"></div>
     </div>
   <div class="ui segment">
     <div class="ui two column very relaxed grid">
       <%= f.fields_for :workout_exercises, @workout.workout_exercises, html: {class: 'ui_form' } do |we| %>
         <div class="column">
         <div class="field">  
-        <h4 class="ui header"><%= we.label :exercise %></h4>
-        <%= we.collection_select :exercise_id, Exercise.all, :id, :name, { prompt: true } %><br>
+        <h3 class="ui header"><%= we.label :exercise %></h3>
+        <%= we.collection_select :exercise_id, Exercise.all, :id, :name, { prompt: true } %>
     </div>
   </div>
     <div class="column">
       <div class="field">
       <%= we.label :sets %>
-      <%= we.number_field :sets %><br>
-        </div><br>
+      <%= we.number_field :sets %>
+        </div>
       </div>
       <div class="column">
         <div class="field">
         <%= we.label :reps %>
-        <%= we.number_field :reps %><br>
+        <%= we.number_field :reps %>
   <div class="ui section divider"></div>
-  </div><br>
+  </div>
   </div>
   <div class="column">
   <div class="field">
   <%= we.label :weight %>
-  <%= we.text_field :weight %><br>
+  <%= we.text_field :weight %>
   <div class="ui section divider"></div>
   </div>
   </div>
@@ -41,10 +40,9 @@
   </div>
   </div>
  
- <div class="ui segment">
- <button class="small ui primary basic button">
-     Edit Your Workout </button>
-
+ <div class="ui compact segment">
+ <button class="small ui primary button">
+     Save Changes  </button>
 <% end %>
 <div class="ui hidden divider"></div>
 
@@ -52,10 +50,9 @@
   <button class="mini ui negative basic button">
   <%= "Delete #{@workout.name}" %>
 </button> 
-
 <% end %>
 
 <div class="ui hidden divider"></div>
-<%= link_to "All Workouts", user_path(session[:user_id]) %>
+<%= link_to "Back to Profile", user_path(session[:user_id]) %>
 
 </div>

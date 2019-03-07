@@ -1,5 +1,6 @@
 <h2><%= @workout.name %></h2>
-<table>
+<table class="ui small fixed celled table">
+<thead>
   <tr>
     <th>Exercise</th>
     <th>Weight</th>
@@ -16,5 +17,5 @@
   <% end %>
 </table>
 
-<%= link_to "Edit Your Workout", edit_workout_path %>
+<%= link_to "Edit Your Workout", edit_workout_path %><br>
 <%= link_to "All Workouts", user_path(@workout.user_id) %>

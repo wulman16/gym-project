@@ -16,3 +16,8 @@
  .main-content {
     margin-top: 50px;
   }
+  
+  .table {
+  table-layout: auto; 
+   width: 150px;
+  }

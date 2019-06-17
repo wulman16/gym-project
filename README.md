@@ -1,24 +1,14 @@
-# README
+# Strongify
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Keep track of all your workouts with this easy-to-use web application.
 
-Things you may want to cover:
+## Built With
+Ruby on Rails, Semantic UI
 
-* Ruby version
+## Requirements
+Ruby 2.3.3
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Installation
+- bundle install 
+- rails db:migrate 
+- rails s
